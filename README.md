@@ -1,4 +1,4 @@
-# nytimes-covid-data-tool
+# nytimes-covid-data-tools
 A Python3 command line tool to explode the NYTimes covid-19-data into separate state and county csv files.
 
 ## Purpose
@@ -26,7 +26,7 @@ your-working-directory/
         etc... for each state or territory
 ```
 
-Each time the program is run, each csv file (3330 of them) is overwritten, or created anew if necessary. So therefore, it is not recommended that you modify the generated csv files unless you plan to make copies, or move them somewhere other than the current working directory. Otherwise, your changes will be lost the next time the program is run. But if you create additional files in the states directory tree, they will retained. Knowing this, you can plan your work accordingly.
+Each time the program is run, each csv file (3330 of them) is overwritten, or created anew if necessary. So therefore, it is not recommended that you modify the generated csv files unless you plan to make copies, or move them somewhere other than the current working directory. Otherwise, your changes will be lost the next time the program is run. But if you create additional files in the states directory tree, they will be retained. Knowing this, you can plan your work accordingly.
 
 ## System Requirements
 Python 3 must be installed and on the command line path.
@@ -34,10 +34,10 @@ Python 3 must be installed and on the command line path.
 The script should run on any Mac running Catalina 10.15.7 and probably a lot of earlier MacOS releases that come with Python3 installed. The code uses literal slashes "/" as the file system path delimiters. Therefore it might need to be tweaked for Windows. If someone wants to undertake that, it would be appreciated as I don't do Windows.
 
 ## Using the program
-1. In your working directory, put a copy of the Python source file **state-county-bustout.py**
+1. In your working directory, put a copy of the Python source file **state-county-bustout.py**, or put its location on the shell path.
 2. Download the covid-19-data-master.zip file from the [NYTimes covid-19-data git repository](https://github.com/nytimes/covid-19-data) into your working directory
 3. Unzip the file. It will create a directory **covid-19-data-master** containing the raw data.
-4. In a command line window, run ```./state-county-bustout.py```
+4. In a command line window, run ```./state-county-bustout.py``` (or just ```state-county-bustout.py``` if it's on the shell path).
 
 The program takes about 10 seconds to run on a 2013 iMac 3.5 GHz Quad-Core Intel Core i7 running Catalina, and generates output like this:
 ```
