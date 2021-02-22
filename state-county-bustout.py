@@ -107,7 +107,7 @@ for state_name in states_dict:
     print ("Writing %s" % (state_name))
     
     # first write out the state's combined csv file
-    state_csv_file_path = "./covid-19-data-master/states/%s/%s-state.csv" % (state_name, state_name)
+    state_csv_file_path = "./states/%s/%s-state.csv" % (state_name, state_name)
     state_csv_file = open(state_csv_file_path, "w")
     state_csv_file.write(state_file_row_zero)
     state_array = states_dict[state_name]
