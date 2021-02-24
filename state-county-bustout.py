@@ -2,7 +2,6 @@
 # Author: Joe Cascio, Jr.
 # email: joe.cascio.jr@gmail.com
 # Licensed under GNU GPL v3 (no closed source distributions)
-# May need some tweaking for Windows file path delimiters.
 # Execute in the same directory that holds the covid-19-data-master directory.
 # System requirements: MacOS with Python3 installed and on the command line path
 # If you want, put the source file on the Python3 path. But, whatevs.
@@ -27,7 +26,7 @@ import csv
 import os
 
 print("Parsing us-counties.csv...")
-csvfile = open('./covid-19-data-master/us-counties.csv', 'r')
+csvfile = open(os.path.join(".", "covid-19-data-master", "us-counties.csv"), 'r')
 # csvfile = open('./covid-19-data-master/counties-test.csv', 'r')
 fieldnames = ("date","county", "state","fips", "cases", "deaths")
 reader = csv.DictReader(csvfile, fieldnames, delimiter=',')
@@ -73,7 +72,7 @@ csvfile.close()
 # Now the us-states file
 print("Parsing us-states.csv...")
 
-csvfile = open('./covid-19-data-master/us-states.csv', 'r')
+csvfile = open(os.path.join(".", "covid-19-data-master", "us-states.csv"), 'r')
 fieldnames = ("date", "state","fips", "cases", "deaths")
 state_reader = csv.DictReader(csvfile, fieldnames, delimiter=',')
 
@@ -101,13 +100,13 @@ csvfile.close()
 # Create the state directories, and under them, the county csv files
 # that contain the county row arrays
 for state_name in states_dict:
-    state_dir_path = "./states/%s" % (state_name)
+    state_dir_path = os.path.join(".", "states", state_name)
     if not os.path.exists(state_dir_path):
         os.makedirs(state_dir_path)
     print ("Writing %s" % (state_name))
     
     # first write out the state's combined csv file
-    state_csv_file_path = "./states/%s/%s-state.csv" % (state_name, state_name)
+    state_csv_file_path = os.path.join(".", "states", state_name, ("%s-state.csv" % (state_name)))
     state_csv_file = open(state_csv_file_path, "w")
     state_csv_file.write(state_file_row_zero)
     state_array = states_dict[state_name]
@@ -117,8 +116,7 @@ for state_name in states_dict:
 
     # now the county csv files
     for county_name in states[state_name]:
-        county_file_path = "./states/%s/%s.csv" % (state_name, county_name)
-#         print "writing %s/%s" % (state_name, county_name)
+        county_file_path = os.path.join(".", "states", state_name, ("%s.csv" % (county_name)))
         # open the county csv file for write
         county_file = open(county_file_path, 'w')
         county_file.write(county_file_row_zero)
