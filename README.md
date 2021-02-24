@@ -31,7 +31,7 @@ Each time the program is run, each csv file (3330 of them) is overwritten, or cr
 ## System Requirements
 Python 3 must be installed and on the command line path.
 
-The script should run on any Mac running Catalina 10.15.7 and probably a lot of earlier MacOS releases that come with Python3 installed. The code uses literal slashes "/" as the file system path delimiters. Therefore it might need to be tweaked for Windows. If someone wants to undertake that, it would be appreciated as I don't do Windows.
+The script should run on any Mac running Catalina 10.15.7 and probably a lot of earlier MacOS releases that come with Python3 installed. 
 
 ## Using the program
 1. In your working directory, put a copy of the Python source file **state-county-bustout.py**, or put its location on the shell path.
